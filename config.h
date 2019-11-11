@@ -84,43 +84,68 @@ char *termname = "st-256color";
 unsigned int tabspaces = 8;
 
 /* bg opacity */
-float alpha = 0.92;
+float alpha = 1;
 
-/* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
-	"#282828", /* hard contrast: #1d2021 / soft contrast: #32302f */
-	"#cc241d",
-	"#98971a",
-	"#d79921",
-	"#458588",
-	"#b16286",
-	"#689d6a",
-	"#a89984",
-	"#928374",
-	"#fb4934",
-	"#b8bb26",
-	"#fabd2f",
-	"#83a598",
-	"#d3869b",
-	"#8ec07c",
-	"#ebdbb2",
-	[255] = 0,
-	/* more colors can be added after 255 to use with DefaultXX */
-	"#282828",   /* 256 -> bg */
-	"#ebdbb2",   /* 257 -> fg */
-	"#add8e6", /* 258 -> cursor */
+  "#222222", /* base00 */
+  "#cc6666", /* base08 */
+  "#b5bd68", /* base0B */
+  "#f0c674", /* base0A */
+  "#81a2be", /* base0D */
+  "#b294bb", /* base0E */
+  "#8abeb7", /* base0C */
+  "#c5c8c6", /* base05 */
+  "#969896", /* base03 */
+  "#de935f", /* base09 */
+  "#333333", /* base01 */
+  "#444444", /* base02 */
+  "#b4b7b4", /* base04 */
+  "#e0e0e0", /* base06 */
+  "#a3685a", /* base0F */
+  "#ffffff", /* base07 */
 };
 
+unsigned int defaultfg = 7;
+unsigned int defaultbg = 0;
+static unsigned int defaultcs = 13;
+static unsigned int defaultrcs = 0;
 
+/* Terminal colors (16 first used in escape sequence) */
+/*
+ * static const char *colorname[] = {
+ * 	"#222222", 
+ * 	"#cc241d",
+ * 	"#98971a",
+ * 	"#d79921",
+ * 	"#458588",
+ * 	"#b16286",
+ * 	"#689d6a",
+ * 	"#a89984",
+ * 	"#928374",
+ * 	"#fb4934",
+ * 	"#b8bb26",
+ * 	"#fabd2f",
+ * 	"#83a598",
+ * 	"#d3869b",
+ * 	"#8ec07c",
+ * 	"#ebdbb2",
+ * 	[255] = 0,
+ * 	"#222222",   
+ * 	"#ebdbb2",  
+ * 	"#add8e6", 
+ * };
+ * 
+ */
 /*
  * Default colors (colorname index)
  * foreground, background, cursor, reverse cursor
  */
-unsigned int defaultfg = 257;
-unsigned int defaultbg = 256;
-static unsigned int defaultcs = 258;
-static unsigned int defaultrcs = 0;
-
+/*
+ *unsigned int defaultfg = 257;
+ *unsigned int defaultbg = 256;
+ *static unsigned int defaultcs = 258;
+ *static unsigned int defaultrcs = 0;
+ */
 /*
  * Default shape of cursor
  * 2: Block ("█")
@@ -204,8 +229,8 @@ static MouseShortcut mshortcuts[] = {
 
 MouseKey mkeys[] = {
 	/* button               mask            function        argument */
-	{ Button4,              ShiftMask,      kscrollup,      {.i =  1} },
-	{ Button5,              ShiftMask,      kscrolldown,    {.i =  1} },
+	{ Button4,              ShiftMask,      kscrollup,      {.i =  4} },
+	{ Button5,              ShiftMask,      kscrolldown,    {.i =  4} },
 	{ Button4,              MODKEY,         kscrollup,      {.i =  1} },
 	{ Button5,              MODKEY,         kscrolldown,    {.i =  1} },
 	{ Button4,              TERMMOD,        zoom,           {.f =  +1} },

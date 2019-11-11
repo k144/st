@@ -1,3 +1,12 @@
+# k144's fork of Luke's build of st
+
+## Colors
+I've changed the colors to [base16 tomorrow night theme](https://github.com/honza/base16-st/blob/master/build/base16-tomorrow-night-theme.h) and modified them to fit [my dwm build](https://github.com/k144/dwm).
+
+## Scrolling
+
+Pressing shift now increases the scrolling speed 4x.
+
 # Luke's build of st - the simple (suckless) terminal
 
 The [suckless terminal (st)](https://st.suckless.org/) with some additional features that make it literally the best terminal emulator ever:
